@@ -1,13 +1,19 @@
 body {
     margin: 0;
-    font-family: Arial, Helvetica, sans-serif;
-    background-color: rgb(243, 241, 241);
+    font-family: 'Quicksand', sans-serif;
+    background-color: #f3f1f1;
+}
+
+.log_section img {
+    width: 220px;
+    margin: 0 auto;
 }
 
 main nav {
     background-color: #01BBD3;
     display: grid;
     height: 65px;
+    width: 100%;
 }
 
 main ul {
@@ -17,7 +23,14 @@ main ul {
     list-style-type: none;
     display: grid;
     grid-template-columns: 1fr 1fr 1fr 1fr;
+    justify-content: center;
     align-items: center;
+    grid-gap: 20px;
+}
+
+main li {
+    padding: 20px 30px;
+    cursor: pointer;
 }
 
 main li a {
@@ -25,15 +38,16 @@ main li a {
     color: white;
     text-align: center;
     text-decoration: none;
-    padding: 15px;
+    font-size: 20px;
 }
 
-main li a:hover {
-    opacity: 0.9;
-    background-color: gray;
+main li:hover {
+    opacity: 0.7;
+    background-color: rgb(81, 194, 209);
+    transition: 0.3s;
 }
 
-#login_section input {
+.log_section input {
     width: 500px;
     padding: 12px 20px 8px 10px;
     margin: 10px 0 15px 0;
@@ -46,43 +60,46 @@ main li a:hover {
     border-right: 0;
     border-left: 0;
     background-color: rgb(243, 241, 241);
-    font-size: 16.5px;
+    font-size: 17.5px;
 }
   
-#login_section {
+.log_section {
     width: 50%;
     display: grid;
     justify-content: center;
     text-align: center;
     margin: 0 auto;
-    margin-top: 120px;
 }
 
-#login_section h1 {
-    font-size: 50px;
+.log_section h1 {
+    font-size: 75px;
+    margin-top: -50px;
+    z-index: 3;
 }
 
-#login_section button {
+.log_section button {
     margin-top: 20px;
 }
 
-.login_inputs {
+.log_inputs {
     display: grid;
+    margin-top: -15px;
+    justify-content: center;
 }
 
-.login_submit {
+.log_submit {
     font-size: 19px;
 }
 
-.login_submit a {
+.log_submit a {
     text-decoration: none;
 }
 
-.login_submit a:hover {
+.log_submit a:hover {
     opacity: 0.8;
 }
 
-button {
+.log_submit button {
     display: inline-block;
     padding: 10px 20px;
     font-size: 20px;
@@ -99,8 +116,49 @@ button {
     transition: 0.3s;
 }
 
-  
 button:hover {    
     background-color: rgb(81, 194, 209);
 }
   
+.profile_section {
+    display: grid;
+    grid-template-columns: 1fr 2fr;
+    grid-gap: 20px;
+    justify-content: center;
+    width: 45%;
+    margin: 0 auto;
+    margin-top: 70px;
+}
+
+.profile_image {
+    background-color: red;
+    border-radius: 50%;
+    height: 180px;
+    width: 180px;
+    margin: 0 auto;
+}
+
+.profile_info {
+    margin: 0 auto;
+}
+
+.profile_section h3,h2,p {
+    margin: 0;
+}
+
+.profile_photos {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    grid-gap: 15px;
+    justify-content: center;
+    width: 45%;
+    margin: 0 auto;
+    margin-top: 35px;
+    text-align: center;
+}
+
+.square {
+    height: 150px;
+    background-color: red;
+}
+
