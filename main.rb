@@ -6,15 +6,15 @@ get '/' do
 end
 
 get '/signup' do
-  "signup page"
+  erb :signup
 end
 
 get '/login' do
-  "login page login here"
+  erb :login
 end
 
 get '/profile' do
-  "profile page"
+  erb :profile
 end
 
 get '/:anything' do 
