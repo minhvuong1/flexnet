@@ -1,5 +1,19 @@
 CREATE DATABASE flexnet;
 
-INSERT INTO users (username, email, name, password_digest)
-VALUES ('terminator23', 'mikety@gmail.com', 'Mike Tyson', 'hellob12');
+CREATE TABLE users (
+    id SERIAL PRIMARY KEY,
+    email TEXT,
+    name TEXT,
+    username TEXT,
+    password_digest TEXT
+);
 
+INSERT INTO users (username, email, name, password_digest)
+VALUES ();
+
+CREATE TABLE posts (
+    id SERIAL PRIMARY KEY,
+    description TEXT,
+    image_url TEXT,
+    user_id INTEGER
+);

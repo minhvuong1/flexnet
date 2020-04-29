@@ -8,7 +8,16 @@
         </div>
         <div class="log_submit">
             <button>Login</button>
-            <p>Don't have an account? Sign up <a href="/signup">here</a></p>
         </div>
     </form>
+    <form action="/login" method="post">
+        <div class="log_inputs">
+            <input type="hidden" name="email" value="mike@gmail.com">
+            <input type="hidden" name="password" value="hello">
+            <div class="log_submit">
+                <button id="guest_button">Login as guest</button>
+            </div>
+        </div>
+    </form>
+    <p>Don't have an account? Sign up <a href="/signup">here</a></p>
 </div>

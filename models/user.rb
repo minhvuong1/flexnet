@@ -25,3 +25,7 @@ def add_user(email, name, username, password)
     run_sql("INSERT INTO users (email, name, username, password_digest)
     VALUES ($1, $2, $3, $4);", [email, name, username, password_digest])
 end
+
+def update_user(username, name, bio, image_url, id) 
+    run_sql("UPDATE users SET username = $1, name = $2, bio = $3, image_url = $4 where id = $5", [username, name, bio, image_url, id])
+end
