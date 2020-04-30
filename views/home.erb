@@ -7,7 +7,10 @@
                 <div class="username_container">
                     <img src='<%=find_user_by_id(post["user_id"])["image_url"]%>'/>
                     <span class="username_post"><b><%=find_user_by_id(post["user_id"])["username"]%></b></span> 
-                    <a style="margin-left: 10px;"href="#"><i class="fas fa-ellipsis-h"></i></i></a>
+                    <form id="edit_post_button" action="/edit_post" method="get">
+                        <input type="hidden" name="id" value=<%=post["id"]%>>
+                        <button><a style="margin-left: 10px;"><i class="fas fa-ellipsis-h"></i></i></a></button>
+                    </form>
                 </div>
                 <img class="feed_image" src="<%=post["image_url"]%>">
                 <div class="post_icons">

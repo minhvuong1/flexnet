@@ -1,7 +1,5 @@
-require 'bcrypt'
-
 def run_sql(sql, params = []) 
-    connection = PG.connect(dbname: 'flexnet')
+    connection = PG.connect(ENV['DATABASE_URL'] || {dbname: 'flexnet'})
     records = connection.exec_params(sql, params)
     connection.close
     records

@@ -1,0 +1,9 @@
+<form action="/update_post" method="post">
+    <input type="hidden" name="_method" value="patch">
+    <input type="hidden" name="id" value="<%= params["id"]%>">
+    <label for="">Description</label>
+    <input type="text" name="description" value="<%= find_post_by_id(params["id"])["description"]%>">
+    <label for="">Image URL</label>
+    <input type="text" name="image_url" value="<%= find_post_by_id(params["id"])["image_url"]%>">
+    <button>update</button>
+</form>

@@ -1,7 +1,8 @@
 require 'sinatra'
-require 'sinatra/reloader'
+require 'sinatra/reloader' if development?
 require 'pg'
-require 'pry'
+require 'pry' if development?
+require 'bcrypt'
 
 require_relative 'models/users'
 require_relative 'models/posts'
@@ -86,6 +87,11 @@ end
 
 get '/edit_post' do 
   erb :edit_post
+end
+
+patch '/update_post' do
+  update_post(params["description"], params["image_url"], params["id"])
+  redirect '/'
 end
 
 
