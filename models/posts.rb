@@ -14,5 +14,21 @@ def update_post(description, image_url, id)
 end
 
 def find_post_by_id(id)
-    run_sql("SELECT * FROM posts where id = $1", [id])[0]
+    run_sql("SELECT * FROM posts where id = $1", [id])
+end
+
+def find_comments_by_id(id)
+    run_sql("SELECT comments FROM posts WHERE id = $1;",[id])
+end
+
+def find_user_id_by_post(post_id)
+    run_sql("Select user_id from posts where id = $1", [post_id])[0]
+end
+
+def find_amount_of_posts(id)
+    run_sql("SELECT * from posts where user_id = $1 ORDER BY id DESC;", [id])
+end
+
+def delete_post(id)
+    run_sql("delete from posts where id = $1", [id])
 end

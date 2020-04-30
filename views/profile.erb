@@ -19,14 +19,14 @@
             </form>
         </main>
             <div class="profile_stat">
-                <span><b>1 </b> posts</span>
-                <span><b>1 </b> followers</span>
-                <span><b>1 </b> following</span>
+                <span><b><%=find_amount_of_posts(session[:id]).count%></b> posts</span>
+                <span><b>99 </b> followers</span>
+                <span><b>99 </b> following</span>
             </div>
             <h3><%= titleize(find_one_user_by_email(session[:user_email])["name"]) %></h3>
             <p><% if find_one_user_by_email(session[:user_email])["bio"].length == 0 %>
                     <b>PLEASE ADD A BIO</b><br> 
-                    Lorem, ipsum dolor sit amet consectetur adipisicing elit. Officia accusamus eveniet recusandae quos adipisci accusantium, veniam illum temporibus earum dolore aliquam, labore reiciendis ratione, voluptatibus distinctio quam. Incidunt, quod quasi.
+                    Lorem, ipsum dolor sit amet consectetur adipisicing elit. Officia accusamus eveniet recusandae quos adipisci accusantium, veniam illum temporibus earum dolore aliquam, labore reiciendis ratione, voluptatibus distinctio quam.
                 <% else %>
                     <%= find_one_user_by_email(session[:user_email])["bio"] %>
                 <% end %>
@@ -35,10 +35,8 @@
         </section>  
     </div>
     <div class="profile_photos">
-        <% (0..10).each do |num| %> 
-            <div>
-                <div class="photo_cell"></div>
-            </div>
+        <% find_amount_of_posts(session[:id]).each do |post| %> 
+            <div class="photo_cell"><img src="<%=post["image_url"]%>"></div>
         <% end %>   
     </div>
 </div>

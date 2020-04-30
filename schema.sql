@@ -18,3 +18,9 @@ CREATE TABLE posts (
     comments TEXT,
     user_id INTEGER
 );
+
+CREATE TABLE comments (
+    comment TEXT,
+    post_id INTEGER,
+    user_id INTEGER
+);

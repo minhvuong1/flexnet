@@ -15,18 +15,21 @@
 <main>
     <nav>
         <ul>
+          <% if logged_in? %>
+            <li><a href="/new_post">New Post</a></li>
+          <% end %>
             <li><a href="/login">Login</a></li>
             <li><a href="/">Home</a></li>
             <li><a href="/profile">Profile</a></li>
             <li><a href="/signup">Signup</a></li>
-            <li>    
+            <li><a>
             <% if logged_in? %>
               <form action="/logout" method="post">
                 <button>Logout</button>
                 <input type="hidden" name="_method" value="delete">
               </form>
             <% end %>
-            </li>
+            </a></li>
         </ul>
     </nav>
 </main>

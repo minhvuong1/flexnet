@@ -6,6 +6,7 @@ require 'bcrypt'
 
 require_relative 'models/users'
 require_relative 'models/posts'
+require_relative 'models/comments'
 
 enable :sessions 
 
@@ -21,7 +22,7 @@ get '/' do
   if logged_in?
     posts = all_posts()
     erb(:home, locals: {
-    posts: posts
+    posts: posts,
     })
   else
     redirect '/login'
@@ -46,6 +47,7 @@ post '/login' do
   user = find_one_user_by_email(params["email"])
   if user && BCrypt::Password.new(user["password_digest"]) == params["password"]
     session[:user_email] = user['email']
+    session[:id] = user['id']
     redirect '/profile'
   else
     erb :login
@@ -70,13 +72,18 @@ get '/edit' do
 end
 
 patch '/edit' do
+  redirect "/login" unless logged_in?
   update_user(params["username"], params["name"], params["bio"], params["image_url"], params["id"])
   redirect '/profile'
 end
 
 get '/new_post' do
-  posts = all_posts()
-  erb :new_post
+  if logged_in?
+    posts = all_posts()
+    erb :new_post
+  else 
+    redirect '/login'
+  end
 end
 
 patch '/new_post' do
@@ -85,12 +92,30 @@ patch '/new_post' do
   redirect '/'
 end
 
-get '/edit_post' do 
-  erb :edit_post
+get '/edit_post' do
+  redirect "/login" unless logged_in? 
+  post = find_post_by_id(params["id"])[0]
+  erb :edit_post, locals: {post: post}
 end
 
 patch '/update_post' do
+  redirect "/login" unless logged_in?
   update_post(params["description"], params["image_url"], params["id"])
+  redirect '/'
+end
+
+post '/add_comment' do
+  if params["comments"].length > 0
+    add_comment(params["comments"], params["post_id"], params["user_id"])
+    redirect '/'
+  else 
+    redirect '#/'
+  end
+end
+
+delete '/delete_post' do
+  redirect "/login" unless logged_in?
+  delete_post(params["id"])
   redirect '/'
 end
 

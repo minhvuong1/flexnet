@@ -1,9 +1,56 @@
-<form action="/update_post" method="post">
-    <input type="hidden" name="_method" value="patch">
-    <input type="hidden" name="id" value="<%= params["id"]%>">
-    <label for="">Description</label>
-    <input type="text" name="description" value="<%= find_post_by_id(params["id"])["description"]%>">
-    <label for="">Image URL</label>
-    <input type="text" name="image_url" value="<%= find_post_by_id(params["id"])["image_url"]%>">
-    <button>update</button>
-</form>
+<div class="home"><main></main>
+    <main>
+        <div class="card">
+            <div class="username_container">
+                <img src='<%=find_user_by_id(post["user_id"])["image_url"]%>'/>
+                <span class="username_post"><b><%=find_user_by_id(post["user_id"])["username"]%></b></span> 
+                <form id="edit_post_button" action="/edit_post" method="get">
+                    <input type="hidden" name="id" value=<%=post["id"]%>>
+                    <button><a style="margin-left: 10px;"><i class="fas fa-ellipsis-h"></i></i></a></button>
+                </form>
+            </div>
+            <img class="feed_image" src="<%=post["image_url"]%>">
+            <div class="post_icons">
+                <a href=""><i class='fas fa-long-arrow-alt-up'></i></a>
+                <a href=""><i class='fas fa-long-arrow-alt-down'></i></a> 
+                <a href=""><i class='far fa-comment'></i></a>
+                <a href="" class="float: right;"><i class='far fa-bookmark'></i></a>
+            </div>
+            <div class="description">
+                <p><b style="margin-right: 5px; font-family: Arial;"><%=find_user_by_id(post["user_id"])["username"]%></b><%=post["description"]%></p>
+            <div></div>
+            <% all_comments.each do |comment| %>
+            <% if comment["post_id"] == post["id"] %>
+                <p><b style="margin-right: 5px; font-family: Arial;"><%= find_user_by_id(comment["user_id"])["username"] %></b>
+                <%= comment["comment"] %></p>
+            <% end %><% end %>
+            </div>
+            <form action="/add_comment" method="post">
+                <div class="post_comment">
+                    <input type="hidden" name="post_id" value="<%=post["id"].to_i%>">
+                    <input type="hidden" name="user_id" value="<%=session[:id].to_i%>">
+                    <input style="width:99%;" name="comments" type="text" placeholder="Add a comment.."> 
+                    <button>Post</button>
+                </div>
+            </form>
+        </div>
+    </main><main></main>
+</div>
+<div class="edit_post_section"><form></form>
+    <form class="update_form" action="/update_post" method="post">
+        <input type="hidden" name="_method" value="patch">
+        <input type="hidden" name="id" value="<%= params["id"]%>">
+        <label for=""><b>Description:</b></label>
+        <input type="text" name="description" value="<%=find_post_by_id(params["id"])[0]["description"]%>"><br>
+        <label for=""><b>Image URL: </b></label>
+        <input type="text" name="image_url" value="<%= find_post_by_id(params["id"])[0]["image_url"]%>">
+        <br><br>
+        <button>Update</button>
+    </form><form></form><form></form>
+    <form class="delete_form" action="/delete_post" method="post">
+        <input type="hidden" name="_method" value="delete">
+        <input type="hidden" name="id" value="<%= params["id"]%>">
+        <button>Delete</button>
+    </form>
+</div>
+
