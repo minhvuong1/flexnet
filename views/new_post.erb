@@ -1,0 +1,10 @@
+<form action="/new_post" method="post">
+    <input type="hidden" name="_method" value="patch">
+    <input type="hidden" name="user_id" value="<%= find_one_user_by_email(session[:user_email])["id"] %>">
+    <label for="">Image URL</label>
+    <input type="text" name="image_url">
+    <label for="">Description</label>
+    <input type="text" name="description">
+    <button>Post</button>
+</form>
+

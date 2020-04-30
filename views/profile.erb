@@ -26,12 +26,12 @@
             <h3><%= titleize(find_one_user_by_email(session[:user_email])["name"]) %></h3>
             <p><% if find_one_user_by_email(session[:user_email])["bio"].length == 0 %>
                     <b>PLEASE ADD A BIO</b><br> 
-                    Lorem ipsum dolor sit amet consectetur adipisicing elit. Quibusdam ea odit, ipsum architecto qui porro. 
+                    Lorem, ipsum dolor sit amet consectetur adipisicing elit. Officia accusamus eveniet recusandae quos adipisci accusantium, veniam illum temporibus earum dolore aliquam, labore reiciendis ratione, voluptatibus distinctio quam. Incidunt, quod quasi.
                 <% else %>
                     <%= find_one_user_by_email(session[:user_email])["bio"] %>
                 <% end %>
             </p>
-            <p><b><a href="github.com/minhvuong1">github.com/<%= find_one_user_by_email(session[:user_email])["username"] %></a></b></p>
+            <%# <p><b><a href="github.com/minhvuong1">github.com/<%= find_one_user_by_email(session[:user_email])["username"] %></a></b></p> 
         </section>  
     </div>
     <div class="profile_photos">

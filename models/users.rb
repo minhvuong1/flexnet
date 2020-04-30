@@ -29,3 +29,7 @@ end
 def update_user(username, name, bio, image_url, id) 
     run_sql("UPDATE users SET username = $1, name = $2, bio = $3, image_url = $4 where id = $5", [username, name, bio, image_url, id])
 end
+
+def find_user_by_id(id)
+    run_sql("SELECT * FROM users where id = $1", [id])[0]
+end

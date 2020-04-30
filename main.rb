@@ -3,7 +3,8 @@ require 'sinatra/reloader'
 require 'pg'
 require 'pry'
 
-require_relative 'models/user'
+require_relative 'models/users'
+require_relative 'models/posts'
 
 enable :sessions 
 
@@ -17,7 +18,10 @@ end
 
 get '/' do
   if logged_in?
-    erb :home
+    posts = all_posts()
+    erb(:home, locals: {
+    posts: posts
+    })
   else
     redirect '/login'
   end
@@ -61,12 +65,27 @@ get '/profile' do
 end
 
 get '/edit' do
-  erb :edit_post_page
+  erb :edit_profile_page
 end
 
 patch '/edit' do
   update_user(params["username"], params["name"], params["bio"], params["image_url"], params["id"])
   redirect '/profile'
+end
+
+get '/new_post' do
+  posts = all_posts()
+  erb :new_post
+end
+
+patch '/new_post' do
+  redirect "/login" unless logged_in?
+  add_new_post(params["description"], params["image_url"], params["user_id"])
+  redirect '/'
+end
+
+get '/edit_post' do 
+  erb :edit_post
 end
 
 

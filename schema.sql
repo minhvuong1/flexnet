@@ -15,5 +15,6 @@ CREATE TABLE posts (
     id SERIAL PRIMARY KEY,
     description TEXT,
     image_url TEXT,
+    comments TEXT,
     user_id INTEGER
 );

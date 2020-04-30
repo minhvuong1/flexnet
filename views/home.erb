@@ -1,31 +1,61 @@
 <% if logged_in? %>
-    <div class="home">
-    <main></main>
-    <main>
-        <div class="card">
-            <div class="username_container">
-                    <img src='https://www.w3schools.com/howto/img_avatar.png'/>
-                    <span class="username_post"><b>mikey01</b></span> 
-            </div>
-            <img class="feed_image" src="https://images.unsplash.com/photo-1532029118404-c94b27247e34?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&w=1000&q=80">
-            <div class="post_icons">
-                <a href="#"><i class='fas fa-long-arrow-alt-up'></i></a>
-                <a href="#"><i class='fas fa-long-arrow-alt-down'></i></a> 
-                <a href="#"><i class='far fa-comment'></i></a>
-                <a href="#" class="float: right;"><i class='far fa-bookmark'></i></a>
-            </div>
-            <div class="description">
-                <p><b style="font-family: Arial;">mikey01</b> Lorem ipsum, dolor sit amet consectetur adipisicing elit. Vel, id sapiente. Neque omnis perspiciatis atque aut, commodi nihil in nesciunt aperiam, quaerat, asperiores amet illo quasi id quia porro libero.</p>
-            </div>
-            <form action="/add_comment" method="post">
-                <div class="post_comment">
-                    <input style="width:99%;" name="comment" type="text" placeholder="Add a comment.."> 
-                    <button>Post</button>
+<a href="/new_post">Add a new post</a>
+<% posts.each do |post| %>
+    <div class="home"><main></main>
+        <main>
+            <div class="card">
+                <div class="username_container">
+                    <img src='<%=find_user_by_id(post["user_id"])["image_url"]%>'/>
+                    <span class="username_post"><b><%=find_user_by_id(post["user_id"])["username"]%></b></span> 
+                    <a style="margin-left: 10px;"href="#"><i class="fas fa-ellipsis-h"></i></i></a>
                 </div>
-            </form>
-        </div>
-    </main>
-</div>
-<br><br><br>
+                <img class="feed_image" src="<%=post["image_url"]%>">
+                <div class="post_icons">
+                    <a href="#"><i class='fas fa-long-arrow-alt-up'></i></a>
+                    <a href="#"><i class='fas fa-long-arrow-alt-down'></i></a> 
+                    <a href="#"><i class='far fa-comment'></i></a>
+                    <a href="#" class="float: right;"><i class='far fa-bookmark'></i></a>
+                </div>
+                <div class="description">
+                    <p><b style="margin-right: 5px; font-family: Arial;"><%=find_user_by_id(post["user_id"])["username"]%></b><%=post["description"]%></p>
+                </div>
+                <form action="/add_comment" method="post">
+                    <div class="post_comment">
+                        <input style="width:99%;" name="comment" type="text" placeholder="Add a comment.."> 
+                        <button>Post</button>
+                    </div>
+                </form>
+            </div>
+        </main><main></main>
+    </div><br>
 <%end%>
-
+<%end%>
+<%# <main>
+            <div class="w3-container">
+                <div class="w3-card-4" style="width:70%">
+                    <header class="w3-container w3-light-grey">
+                    <h3>Jane Doe</h3>
+                    </header>
+                    <div class="w3-container" style="background-color: white;">
+                        <p>1 new friend request</p>
+                        <hr>
+                        <img src="https://www.w3schools.com/howto/img_avatar2.png" alt="Avatar" class="w3-left w3-circle w3-margin-right" style="width:80px">
+                        <p>CEO at Mighty Schools. Marketing and Advertising. Seeking a new job and new opportunities.</p><br>
+                    </div>
+                    <button class="w3-button w3-block" style="background-color: #01bbd3">+ Connect</button>
+                </div>
+                <br>
+                <div class="w3-card-4" style="width:70%">
+                    <header class="w3-container w3-light-grey">
+                    <h3>John Doe</h3>
+                    </header>
+                    <div class="w3-container" style="background-color: white;">
+                        <p>1 new friend request</p>
+                        <hr>
+                        <img src="https://www.w3schools.com/howto/img_avatar.png" alt="Avatar" class="w3-left w3-circle w3-margin-right" style="width:80px">
+                        <p>CTO at Microsoft. Software Engineering and Machine Learning. Seeking a new job and new opportunities.</p><br>
+                    </div>
+                    <button class="w3-button w3-block" style="background-color: #01bbd3">+ Connect</button>
+                </div>
+            </div>
+    </main> %>
