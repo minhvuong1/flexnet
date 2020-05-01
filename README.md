@@ -1,5 +1,8 @@
 # Flexnet
 
+<img src="https://github.com/minhvuong1/flexnet/blob/master/profile_page_screenshot.png" width="310">
+<img src="https://github.com/minhvuong1/flexnet/blob/master/home_page_screenshot.png" width="310">
+
 ## General Requirements
 Have ideally 2 resources(tables) (more if they make sense) – one representing someone using your application, and one that represents the main functional idea for your app
 
