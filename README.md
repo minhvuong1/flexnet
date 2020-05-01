@@ -1,5 +1,8 @@
 # Flexnet
 
+<img src="https://github.com/minhvuong1/flexnet/blob/master/profile_page_screenshot.png" width="310">
+<img src="https://github.com/minhvuong1/flexnet/blob/master/home_page_screenshot.png" width="310">
+
 ## General Requirements
 Have ideally 2 resources(tables) (more if they make sense) – one representing someone using your application, and one that represents the main functional idea for your app
 
@@ -12,6 +15,9 @@ Include wireframes that you designed during the planning process
 Have semantically clean HTML and CSS
 
 Be deployed online and accessible to the public
+
+## Planning
+<img src="https://github.com/minhvuong1/flexnet/blob/master/whiteboard_sketch_plan.jpg" width="310">
 
 ## Development
 1. HTML
