@@ -1,14 +1,19 @@
-<form action="/edit" method="post">
+<div class="profile_edit">
+    <form></form>
+    <form action="/edit" method="post">
+    <h1>Edit Profile</h1>
     <input type="hidden" name="_method" value="patch">
     <input type="hidden" name="id" value="<%= find_one_user_by_email(session[:user_email])["id"] %>">
     <label for="">Username</label>
-    <input type="text" name="username" value="<%= find_one_user_by_email(session[:user_email])["username"] %>">
+    <input type="text" name="username" value="<%= find_one_user_by_email(session[:user_email])["username"] %>"><br>
     <label for="">Name</label>
-    <input type="text" name="name" value="<%= find_one_user_by_email(session[:user_email])["name"] %>">
+    <input type="text" name="name" value="<%= find_one_user_by_email(session[:user_email])["name"] %>"><br>
     <label for="">Bio</label>
-    <input type="text" name="bio" value="<%= find_one_user_by_email(session[:user_email])["bio"] %>">
+    <input type="text" name="bio" value="<%= find_one_user_by_email(session[:user_email])["bio"] %>"><br>
     <label for="">Profile Pic</label>
-    <input type="text" name="image_url" value="<%= find_one_user_by_email(session[:user_email])["image_url"]%>">
+    <input type="text" name="image_url" value="<%= find_one_user_by_email(session[:user_email])["image_url"]%>"><br><br>
     <button>Update</button>
 </form>
+
+</div>
 

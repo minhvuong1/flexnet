@@ -469,12 +469,29 @@ button {
 
 .new_post_section input {
     width: 100%;
-    height: 30px;
+    height: 40px;
+    padding: 12px 20px 8px 10px;
+    margin: 10px 0 15px 0;
+    display: inline-block;
+    border-radius: 4px;
+    box-sizing: border-box;
+    border-bottom: 3px solid rgb(194, 194, 194);
+    border-top: 0;
+    border-right: 0;
+    border-left: 0;
+    background-color: white;
+    font-size: 17.5px;
+}
+
+.new_post_section label {
+    font-weight: bolder;
+    font-size: 17.5px;
 }
 
 .new_post_section button {
     width: 100%;
     height: 50px;
+    font-size: 17.5px;
 }
 
 .new_post_section button:hover {
@@ -489,4 +506,47 @@ button {
     height: 50px;
     font-size: 18px;
     margin-bottom: 150px;
+}
+
+.profile_edit {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    margin-top: 100px;
+    font-size: 17.5px;
+}
+
+.profile_edit input {
+    width: 100%;
+    height: 40px;
+    padding: 12px 20px 8px 10px;
+    margin: 10px 0 15px 0;
+    display: inline-block;
+    border-radius: 4px;
+    box-sizing: border-box;
+    border-bottom: 3px solid rgb(194, 194, 194);
+    border-top: 0;
+    border-right: 0;
+    border-left: 0;
+    background-color: white;
+    font-size: 17.5px;
+}
+
+.profile_edit button {
+    height: 50px;
+    font-size: 17.5px;
+    width: 100%;
+}
+
+.profile_edit button:hover {
+    opacity: 0.7;
+}
+
+.profile_edit h1 {
+    text-align: center;
+    text-transform: uppercase;
+    margin-bottom: 50px;
+}
+
+.profile_edit label {
+    font-weight: bolder;
 }
