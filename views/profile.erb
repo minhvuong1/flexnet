@@ -7,17 +7,16 @@
                     https://www.w3schools.com/howto/img_avatar.png
                 <% else %>
                     <%= find_one_user_by_email(session[:user_email])["image_url"] %>
-                <% end %>
-                '/>
+                <% end %>'/>
             </div>
         </section>  
         <section class="profile_info">
-        <main>
-            <h2><%= find_one_user_by_email(session[:user_email])["username"] %></h2>
-            <form action="/edit" method="get">
-                <button><span>Edit</span></a></button>
-            </form>
-        </main>
+            <main>
+                <h2><%= find_one_user_by_email(session[:user_email])["username"] %></h2>
+                <form action="/edit" method="get">
+                    <button><span>Edit</span></a></button>
+                </form>
+            </main>
             <div class="profile_stat">
                 <span><b><%=find_amount_of_posts(session[:id]).count%></b> posts</span>
                 <span><b>99 </b> followers</span>
@@ -31,12 +30,13 @@
                     <%= find_one_user_by_email(session[:user_email])["bio"] %>
                 <% end %>
             </p>
-            <%# <p><b><a href="github.com/minhvuong1">github.com/<%= find_one_user_by_email(session[:user_email])["username"] %></a></b></p> 
         </section>  
     </div>
     <div class="profile_photos">
         <% find_amount_of_posts(session[:id]).each do |post| %> 
-            <div class="photo_cell"><img src="<%=post["image_url"]%>"></div>
+            <div class="photo_cell">
+                <a href="/edit_post?id=<%=post["id"]%>"><img src="<%=post["image_url"]%>"></a>
+            </div>
         <% end %>   
     </div>
 </div>

@@ -28,10 +28,11 @@
                     <p><b style="margin-right: 5px; font-family: Arial;"><%=find_user_by_id(post["user_id"])["username"]%></b><%=post["description"]%></p>
             <div></div>
                 <% all_comments.each do |comment| %>
-                <% if comment["post_id"] == post["id"] %>
-                    <p><b style="margin-right: 5px; font-family: Arial;"><%= find_user_by_id(comment["user_id"])["username"] %></b>
-                    <%= comment["comment"] %></p>
-                <% end %><% end %>
+                    <% if comment["post_id"] == post["id"] %>
+                        <p><b style="margin-right: 5px; font-family: Arial;"><%= find_user_by_id(comment["user_id"])["username"] %></b>
+                        <%= comment["comment"] %></p>
+                    <% end %>
+                <% end %>   
             </div>
                 <form action="/add_comment" method="post">
                     <div class="post_comment">

@@ -101,13 +101,13 @@ end
 patch '/update_post' do
   redirect "/login" unless logged_in?
   update_post(params["description"], params["image_url"], params["id"])
-  redirect '/'
+  redirect '/profile'
 end
 
 post '/add_comment' do
   if params["comments"].length > 0
     add_comment(params["comments"], params["post_id"], params["user_id"])
-    redirect '/'
+    redirect '#/'
   else 
     redirect '#/'
   end
