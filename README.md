@@ -1,4 +1,5 @@
 # Flexnet
+Social Media App
 
 <img src="https://github.com/minhvuong1/flexnet/blob/master/profile_page_screenshot.png" width="310">
 <img src="https://github.com/minhvuong1/flexnet/blob/master/home_page_screenshot.png" width="310">
